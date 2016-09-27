@@ -1,0 +1,7 @@
+<div class="user-form">
+  <h3>Welcome, <%= "#{ @user.username }" %>!</h3>
+  <form action="/sessions/<%= @user.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="button" type="submit" value="Logout">
+  </form>
+</div>

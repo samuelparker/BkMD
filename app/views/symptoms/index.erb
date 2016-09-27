@@ -1,0 +1,13 @@
+<ul>
+  <% @categories.each do |category| %>
+    <li class="category"><%= "#{ category.name }" %></li>
+  <ul>
+    <% category.symptoms.each do |symptom| %>
+    <li class="symptom">
+      <a href='solutions/<%= "#{symptom.solution_id }" %>'><%= "#{ symptom.description }" %></a>
+      <hr>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
+</ul>

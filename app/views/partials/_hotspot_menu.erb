@@ -1,0 +1,13 @@
+<div class="hotspot-menu">  
+  <ul>
+  <% @hotspot.symptoms.each do |symptom| %>
+    <li class="category"><%= "#{ symptom.category.name }" %></li>
+    <ul>
+      <li class="symptom">
+        <a href='solutions/<%= "#{symptom.solution_id }" %>'><%= "#{ symptom.description }" %></a>
+        <hr>
+      </li>
+    </ul>
+  <% end %>
+  </ul>
+</div>

@@ -1,24 +1,44 @@
-<h1>BikeMD</h1>
-<div id="bike-pic">
-  <img src='../images/bicycle-traffic-sign.gif'>
-  <div id="hs-front-brake" class="hotspot"></div>
-  <div id="hs-front-tire" class="hotspot"></div>
-  <div id="hs-cranks" class="hotspot"></div>
-  <div id="hs-handlebars" class="hotspot"></div>
-  <div id="hs-saddle" class="hotspot"></div>
-  <div id="hs-rear-brake" class="hotspot"></div>
-  <div id="hs-rear-deraileur" class="hotspot"></div>
+<div class="whole-page">
+<div id="solutions-menu">  
+  <div id="bike-pic">
+    <img src="../images/bicycle-traffic-sign-no-frame.png">
+    <a href="/solutions?hs=front-brake">
+      <div id="hs-front-brake" class="hotspot"></div>
+    </a>
+    <a href="/solutions?hs=front-tire">
+      <div id="hs-front-tire" class="hotspot"></div>
+    </a>
+    <a href="/solutions?hs=cranks">
+      <div id="hs-cranks" class="hotspot"></div>
+    </a>
+    <a href="/solutions?hs=handlebars">
+      <div id="hs-handlebars" class="hotspot"></div>
+    </a>
+    <a href="/solutions?hs=saddle">
+      <div id="hs-saddle" class="hotspot"></div>
+    </a>
+    <a href="/solutions?hs=rear-brake">
+      <div id="hs-rear-brake" class="hotspot"></div>
+    </a>
+    <a href="/solutions?hs=rear-deraileur">
+      <div id="hs-rear-deraileur" class="hotspot"></div>
+    </a>
+  </div>
+ 
+      <% if @hotspot %>
+        <%= erb :'partials/_hotspot_menu' %>
+      <% else %>
+      <div class="hotspot-instructions">   
+        <h3>Tap on the problem area<br>to select an issue</h3>
+      </div>
+      <% end %>
+    
 </div>
-<ul>
-  <% @categories.each do |category| %>
-    <li class="category"><%= "#{ category.name }" %></li>
-  <ul>
-    <% category.symptoms.each do |symptom| %>
-    <li class="symptom">
-      <a href='solutions/<%= "#{symptom.solution_id }" %>'><%= "#{ symptom.description }" %></a>
-      <hr>
-    </li>
-    <% end %>
-  </ul>
-  <% end %>
-</ul>
+
+<div class="search-bar">
+  <form action="/solutions" method="get"> 
+  <input type="submit" value="Search">
+  <input type="text" name="search">
+  </form>
+</div>  
+</div>

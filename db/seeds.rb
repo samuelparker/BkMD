@@ -4,6 +4,8 @@ User.destroy_all
 Solution.destroy_all
 Symptom.destroy_all
 Tool.destroy_all
+Category.destroy_all
+Hotspot.destroy_all
 
 5.times do 
   User.create(
@@ -73,8 +75,38 @@ Symptom.all.each do |symptom|
   symptom.update(solution_id: solution_id)
 end
 
+Hotspot.create(name: "cranks")
+Hotspot.create(name: "front-brake")
+Hotspot.create(name: "front-tire")
+Hotspot.create(name: "handlebars")
+Hotspot.create(name: "rear-brake")
+Hotspot.create(name: "rear-deraileur")
+Hotspot.create(name: "saddle")
 
-
+Hotspot.find(1).symptoms << Symptom.find(4)
+Hotspot.find(1).symptoms << Symptom.find(5)
+Hotspot.find(1).symptoms << Symptom.find(3)
+Hotspot.find(2).symptoms << Symptom.find(6)
+Hotspot.find(2).symptoms << Symptom.find(7)
+Hotspot.find(2).symptoms << Symptom.find(1)
+Hotspot.find(3).symptoms << Symptom.find(1)
+Hotspot.find(3).symptoms << Symptom.find(2)
+Hotspot.find(4).symptoms << Symptom.find(5)
+Hotspot.find(4).symptoms << Symptom.find(6)
+Hotspot.find(5).symptoms << Symptom.find(6)
+Hotspot.find(5).symptoms << Symptom.find(7)
+Hotspot.find(5).symptoms << Symptom.find(1)
+Hotspot.find(6).symptoms << Symptom.find(5)
+Hotspot.find(6).symptoms << Symptom.find(2)
+Hotspot.find(6).symptoms << Symptom.find(1)
+Hotspot.find(6).symptoms << Symptom.find(3)
+Hotspot.find(7).symptoms << Symptom.find(1)
+Hotspot.find(7).symptoms << Symptom.find(2)
+Hotspot.find(7).symptoms << Symptom.find(3)
+Hotspot.find(7).symptoms << Symptom.find(4)
+Hotspot.find(7).symptoms << Symptom.find(5)
+Hotspot.find(7).symptoms << Symptom.find(6)
+Hotspot.find(7).symptoms << Symptom.find(7)
 
 
 
